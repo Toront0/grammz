@@ -1,33 +1,17 @@
 "use client";
 
-import {
-  useGLTF,
-  useTexture,
-  Center,
-  useKTX2,
-  Html,
-  RenderTexture,
-  OrthographicCamera,
-  Text
-} from "@react-three/drei";
+import { useGLTF, useTexture, Center, useKTX2 } from "@react-three/drei";
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
-
 import { useAudioStore } from "../store/useAudioStore";
 import { useFrame } from "@react-three/fiber";
-import {
-  CurtainFragmentShader,
-  CurtainVertexShader
-} from "../shaders/CurtainsShader";
+
 import {
   coffeeFragmentShader,
   coffeeVertexShader
 } from "../shaders/CoffeeSmokeShader";
 import { MeshSurfaceSampler } from "three/examples/jsm/Addons.js";
-import BrandLogo from "./UI/BrandLogo";
-import StaticBrandLogo from "./StaticBrandLogo";
 
 // const vertexShader = `
 //   varying vec2 vUv;
@@ -217,10 +201,10 @@ export default function CustomModel({ isMobile }: CustomModelProps) {
     //   `/textures_ktx2/perlin.ktx2`
     // ],
     [
-      `/textures_ktx2/general_textures_${res}.ktx2`,
-      `/textures_ktx2/sofa_textures_${res}.ktx2`,
+      `/textures_ktx2/general_textures_1k.ktx2`,
+      `/textures_ktx2/sofa_textures_1k.ktx2`,
       `/textures_ktx2/furniture_textures_${res}.ktx2`,
-      `/textures_ktx2/floor_textures_${res}.ktx2`,
+      `/textures_ktx2/floor_textures_1k.ktx2`,
       `/textures_ktx2/coffee_cup_textures_1k.ktx2`, // (Assuming carnice map name maps here or update accordingly)
       `/textures_ktx2/perlin.ktx2`
     ],
