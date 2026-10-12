@@ -1,96 +1,99 @@
-export const metadata = {
-  title: "About Us",
-  description:
-    "Learn more about GRAMMZ, our design philosophy, and our 3D decorative interior brand."
-};
+import { ScrollTransitionShell } from "../components/UI/ScrollTransitionShell";
 
-const page = () => {
+import Footer from "../components/UI/Footer";
+
+export default function Page() {
+  // 1. Compute image optimization parameters directly on the server safely
+
   return (
-    <div
-      // 💡 Fix 1: Changed h-screen to min-h-screen and forced isolated stacking to prevent canvas overlap
-      className="relative flex w-full h-screen z-40 isolate"
-      style={{ willChange: "opacity" }}
-    >
-      {/* Sidebar hidden on mobile */}
-      <div className="w-2/5 h-full p-6 hidden bg-gray-900 lg:flex flex-col justify-between items-start"></div>
-
-      {/* 💡 Fix 2: Cleaned up height styles so mobile text doesn't collapse to 0px height */}
-      <div className="w-full lg:w-3/5 min-h-full bg-[#EFEBDC] p-4 lg:px-16 overflow-y-auto lg:py-8 flex flex-col">
-        {/* Top bar header */}
-        <div className="flex items-center justify-between w-full pt-16">
-          <div></div>
-          <div className="text-right text-sm lg:text-base font-medium text-neutral-800">
-            <h4 className="whitespace-nowrap">+7 (988) 222-90-00</h4>
-            <h5 className="text-xs lg:text-sm">ул. Каспийское шоссе, 28</h5>
-            <h5 className="text-xs lg:text-sm">Ежедневно с 8:30 до 19:00</h5>
+    <ScrollTransitionShell>
+      {/* CHILD 1: Hero Header section (Static Node - perfectly serializable) */}
+      <div className="w-full pt-24 pb-12 flex lg:flex-row flex-col items-center px-[calc(5vw*1.5)] gap-[calc(5vw*1.5)]">
+        <div className="w-full lg:w-[calc(60%-2.5vw)]  h-full flex flex-col justify-center">
+          <h3 className="text-3xl lg:text-7xl w-full lg:w-3/4  text-gray-100 tracking-tight leading-tight">
+            Давайте обсудим ваш проект.
+          </h3>
+          <h4 className="text-gray-300 mt-8 text-lg font-medium">
+            Контактная информация
+          </h4>
+          <div className="grid grid-cols-1 lg:grid-cols-2 text-gray-300 gap-y-4 mt-10">
+            <div className="col-span-1 text-xs lg:text-sm">
+              <h3 className="font-medium text-gray-200">Главный офис</h3>
+              <h3>ул. Каспийское шоссе, 28, Город Каспийск</h3>
+            </div>
+            <div className="col-span-1 text-xs lg:text-sm">
+              <h3 className="font-medium text-gray-200">Рабочие дни</h3>
+              <h3>Пн-Сб: 8:30 до 19:00</h3>
+            </div>
+            <div className="col-span-1 text-xs lg:text-sm">
+              <h3 className="font-medium text-gray-200">Телефон</h3>
+              <h3>+7 (988) 222-90-00</h3>
+            </div>
+            <div className="col-span-1 gap-4 flex items-center">
+              <a
+                href="https://www.youtube.com/@grammzdecor"
+                target="_blank"
+                className="text-xl lg:text-2xl text-gray-300"
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 576 512"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+                </svg>
+              </a>{" "}
+              <a
+                href="https://www.instagram.com/grammz.decor/"
+                target="_blank"
+                className="text-xl lg:text-2xl text-gray-300"
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 1024 1024"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M512 378.7c-73.4 0-133.3 59.9-133.3 133.3S438.6 645.3 512 645.3 645.3 585.4 645.3 512 585.4 378.7 512 378.7zM911.8 512c0-55.2.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.9-46.9 61.4-103.6 64.5-167.6 3.2-55.1 2.6-109.8 2.6-165zM512 717.1c-113.5 0-205.1-91.6-205.1-205.1S398.5 306.9 512 306.9 717.1 398.5 717.1 512 625.5 717.1 512 717.1zm213.5-370.7c-26.5 0-47.9-21.4-47.9-47.9s21.4-47.9 47.9-47.9 47.9 21.4 47.9 47.9a47.84 47.84 0 0 1-47.9 47.9z"></path>
+                </svg>
+              </a>
+              <h5 className="text-[8px] lg:text-[10px] w-1/2 text-gray-400">
+                *Meta Platforms Inc. признана экстремистской организацией в РФ
+              </h5>
+            </div>
           </div>
         </div>
-
-        {/* Main Content Area */}
-        <div className="mt-6 lg:mt-12 text-neutral-900 flex-1">
-          <h3 className="font-sansClean w-full lg:w-1/2 text-2xl lg:text-4xl mt-4 leading-tight">
-            Мы создаём не просто декор — мы создаём настроение.
-          </h3>
-          <p className="my-6 lg:my-10 w-full lg:w-1/2 text-sm lg:text-base">
-            Настроение чувствуется по-настоящему, когда за ним стоит забота. Мы
-            относимся к каждому клиенту так же внимательно, как к собственному
-            делу, и с радостью отвечаем за всё — от первой идеи до момента,
-            когда вещь оказывается у вас дома.
+        <div className="w-full lg:w-[calc(40%-2.5vw)] border border-gray-600 text-gray-200 p-4 lg:p-8 rounded ">
+          <h3 className="text-base lg:text-lg">Свяжитесь с нами</h3>
+          <p className="text-xs lg:text-base text-gray-300 mt-2">
+            Мы всегда на связи. Задайте свой вопрос или отправьте предложение, и
+            мы ответим вам в ближайшее время.
           </p>
-
-          {/* 💡 Fix 3: Changed w-1/2 to w-full md:w-1/2 so text blocks don't squeeze too narrow on mobile */}
-          <div className="flex w-full flex-wrap gap-y-12 md:gap-y-20 mt-12 md:mt-20">
-            <div className="w-full md:w-1/2 pr-2">
-              <h3 className="font-sansClean text-xl md:text-2xl font-medium">
-                Гарантия
-              </h3>
-              <p className="w-full md:w-3/4 mt-2 md:mt-4 text-sm md:text-base">
-                Каждое изделие мы проверяем лично, поэтому уверены в его
-                качестве. Если что-то пойдёт не так — мы всегда на связи и
-                готовы решить вопрос.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 pr-2">
-              <h3 className="font-sansClean text-xl md:text-2xl font-medium">
-                Доступность
-              </h3>
-              <p className="w-full md:w-3/4 mt-2 md:mt-4 text-sm md:text-base">
-                Мы держим честные цены без лишних наценок и посредников. А если
-                найдёте такой же товар дешевле — продадим по вашей цене.
-                Качественный декор должен быть доступным.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 pr-2">
-              <h3 className="font-sansClean text-xl md:text-2xl font-medium">
-                Доставка
-              </h3>
-              <p className="w-full md:w-3/4 mt-2 md:mt-4 text-sm md:text-base">
-                Бережно упаковываем каждый заказ и отправляем по России и
-                странам СНГ. Стараемся, чтобы посылка дошла быстро и в целости —
-                прямо к вам домой.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 pr-2">
-              <h3 className="font-sansClean text-xl md:text-2xl font-medium">
-                Каталог
-              </h3>
-              <p className="w-full md:w-3/4 mt-2 md:mt-4 text-sm md:text-base">
-                В нашем каталоге собраны десятки изделий на любой вкус и
-                интерьер. Большинство мы создаём сами, поэтому с радостью
-                поможем подобрать то, что подойдёт именно вам.
-              </p>
-            </div>
+          <div className="mt-4 lg:mt-6">
+            <input
+              type="text"
+              className="text-gray-100 bg-white/25 text-sm lg:text-base rounded px-3 py-2 w-full focus:outline-none"
+              placeholder="Как вас зовут ?"
+            />
+            <input
+              type="text"
+              className="text-gray-100 mt-4 bg-white/25 text-sm lg:text-base rounded px-3 py-2 w-full focus:outline-none"
+              placeholder="Ваш номер телефона"
+            />
+            <button className="w-full py-3 rounded mt-6 lg:mt-8 text-sm bg-gray-300 text-black">
+              ОТПРАВИТЬ
+            </button>
           </div>
-
-          <p className="mt-12 md:mt-20 w-full lg:w-2/3 pb-12 text-sm lg:text-base">
-            А ещё мы помним, что приятные мелочи создают настроение. Поэтому
-            каждую пятницу у нас бесплатный кофе — заходите в гости, будем рады
-            угостить вас и просто поговорить о красоте.
-          </p>
         </div>
       </div>
-    </div>
+      <Footer />
+    </ScrollTransitionShell>
   );
-};
-
-export default page;
+}

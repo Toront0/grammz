@@ -114,9 +114,7 @@ export default function LoaderScreen({
         />
         {/* <div className="absolute top-[90%] left-0">123</div> */}
         <div className="flex items-center shrink-0 min-h-10  py-2">
-          {appState === "ready" && (
-            <GlintText>Нажмите в любом месте, чтобы начать</GlintText>
-          )}
+          {appState === "ready" && <GlintText>Нажмите, чтобы начать</GlintText>}
         </div>
       </div>
     </div>

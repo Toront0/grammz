@@ -2,7 +2,6 @@ import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import ClientLayoutWrapper from "./components/ClientLayoutWrapper";
-import { Metadata } from "next";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"], // Add "cyrillic" if your Russian text requires it!
@@ -31,7 +30,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${playfair.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col font-sans"
+      >
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
         {/* <Header />
         <main className="fixed inset-0 w-screen h-screen  text-white overflow-hidden select-none m-0 p-0 border-0">

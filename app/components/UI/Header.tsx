@@ -8,6 +8,7 @@ import gsap from "gsap";
 import HamburgerMenu from "./HamburgerMenu";
 import { useAudioStore } from "../../store/useAudioStore";
 import { usePathname } from "next/navigation";
+import HomeNavigation from "./HomeNavigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,33 +73,30 @@ const Header = () => {
     <>
       {/* Header Bar */}
       <div
-        className={`fixed top-0 z-50 flex items-center gap-4 lg:gap-8 left-0 w-full p-2 lg:p-8 ${
-          isNotHomePage ? "bg-[#EFEBDC] lg:bg-transparent" : "bg-transparent"
-        }`}
+        className={`fixed top-0 z-50 flex  items-center justify-between  left-0 w-full p-2 lg:p-8 bg-linear-to-b from-black via-black/50 to-transparent`}
       >
-        <Link href="/">
-          <Image
-            src="/grammz_logo.webp"
-            alt="logo"
-            width={160}
-            height={40}
-            className="w-24 h-auto lg:w-40"
+        <div className="flex items-center gap-4 lg:gap-8">
+          <Link href="/">
+            <Image
+              src="/grammz_logo.webp"
+              alt="logo"
+              width={160}
+              height={40}
+              className="w-24 h-auto lg:w-40"
+            />
+          </Link>
+          <div className="w-px h-8 bg-gray-600"></div>
+          <HamburgerMenu
+            isOpen={isMenuOpen}
+            setIsMenuOpen={() => setIsMenuOpen((prev) => !prev)}
           />
-        </Link>
-        <div className="w-px h-8 bg-gray-600"></div>
-        {/* <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="font-medium cursor-pointer text-sm group relative z-50"
-        >
-          <span className="text-xs lg:text-base mix-blend-difference text-white">
-            {isMenuOpen ? "CLOSE" : "MENU123"}
-          </span>
-          <div className="absolute top-full left-1/2 group-hover:scale-x-75 transition-transform -translate-x-1/2 w-full h-px bg-white"></div>
-        </button> */}
-        <HamburgerMenu
-          isOpen={isMenuOpen}
-          setIsMenuOpen={() => setIsMenuOpen((prev) => !prev)}
-        />
+        </div>
+        {/* {!isNotHomePage && (
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <HomeNavigation />
+          </div>
+        )} */}
+        <div></div>
       </div>
 
       {/* Overlay Menu */}

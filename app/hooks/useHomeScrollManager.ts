@@ -26,9 +26,9 @@ export function useHomeScrollManager({
   const currentSectionRef = useRef<number>(activeSection);
   const isAnimating = useRef<boolean>(false);
 
-  useEffect(() => {
-    setActiveSection(0);
-  }, [setActiveSection]);
+  // useEffect(() => {
+  //   setActiveSection(0);
+  // }, [setActiveSection]);
 
   useEffect(() => {
     currentSectionRef.current = activeSection;
@@ -38,11 +38,28 @@ export function useHomeScrollManager({
     document.documentElement.style.overscrollBehaviorY = "none";
     document.body.style.overscrollBehaviorY = "none";
 
-    gsap.set('section:not([data-section="0"])', {
+    gsap.set(`section:not([data-section="${activeSection}"])`, {
       visibility: "hidden",
       opacity: 0
     });
-    gsap.set('[data-section="0"]', { visibility: "visible", opacity: 1 });
+
+    // ✅ FIX: Ensure the remembered active section is the one visible on component mount
+    gsap.set(`[data-section="${activeSection}"]`, {
+      visibility: "visible",
+      opacity: 1
+    });
+
+    // ✅ FIX: Also ensure the inner text containers are reset correctly on re-entry
+    gsap.set(`[data-section="${activeSection}"] .animate-box`, {
+      y: 0,
+      opacity: 1
+    });
+
+    // gsap.set('section:not([data-section="0"])', {
+    //   visibility: "hidden",
+    //   opacity: 0
+    // });
+    // gsap.set('[data-section="0"]', { visibility: "visible", opacity: 1 });
 
     const observer = Observer.create({
       target: window,
