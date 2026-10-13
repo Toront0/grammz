@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <ScrollTransitionShell>
       {/* CHILD 1: Hero Header section (Static Node - perfectly serializable) */}
-      <div className="w-full pt-24 pb-12 flex lg:flex-row flex-col items-center px-[calc(5vw*1.5)] gap-[calc(5vw*1.5)]">
+      <div className="w-full pt-24 pb-24 lg:pb-12 flex lg:flex-row flex-col items-center px-[calc(5vw*1.5)] gap-[calc(5vw*1.5)]">
         <div className="w-full lg:w-[calc(60%-2.5vw)]  h-full flex flex-col justify-center">
           <h3 className="text-3xl lg:text-7xl w-full lg:w-3/4  text-gray-100 tracking-tight leading-tight">
             Давайте обсудим ваш проект.

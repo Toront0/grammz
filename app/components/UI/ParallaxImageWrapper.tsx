@@ -8,7 +8,7 @@ export const ParallaxImageWrapper: React.FC<{
   /* The parent container provides the strict crop limits */
   <div className={`${className} overflow-hidden`}>
     {/* The child inside is scaled up to provide extra texture room to move without gaps */}
-    <div className="w-full h-[110%] absolute top-0 left-0 reveal-parallax-img will-change-transform">
+    <div className="w-full h-[120%] absolute -top-[10%] left-0 bg-black reveal-parallax-img will-change-transform">
       {children}
     </div>
   </div>

@@ -28,7 +28,6 @@ const BrandLogo = ({ status }: IBrandLogo) => {
     if (
       lines.some((l) => !l) ||
       !leftBarRef.current ||
-      !gradientRef.current ||
       !h2Ref.current ||
       !h3Ref.current
     )
@@ -206,7 +205,12 @@ const BrandLogo = ({ status }: IBrandLogo) => {
             />
           </g>
 
-          <g transform="translate(60, 50)" filter="none" style={{ opacity: 0 }}>
+          <g
+            ref={gradientRef}
+            transform="translate(60, 50)"
+            filter="none"
+            style={{ opacity: 0 }}
+          >
             <polygon points="0,35 50,10 50,100 0,125" fill="white" />
           </g>
         </svg>

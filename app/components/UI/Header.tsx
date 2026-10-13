@@ -78,11 +78,11 @@ const Header = () => {
         <div className="flex items-center gap-4 lg:gap-8">
           <Link href="/">
             <Image
-              src="/grammz_logo.webp"
+              src="/grammz_logo.png"
               alt="logo"
-              width={160}
-              height={40}
-              className="w-24 h-auto lg:w-40"
+              width={120}
+              height={30}
+              className="w-24 h-auto lg:w-30"
             />
           </Link>
           <div className="w-px h-8 bg-gray-600"></div>
