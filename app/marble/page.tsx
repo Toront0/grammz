@@ -1,5 +1,4 @@
-// 🚫 NO "use client" directive here anymore!
-import React from "react";
+import Script from "next/script";
 import Image, { getImageProps } from "next/image";
 import { ScrollTransitionShell } from "../components/UI/ScrollTransitionShell";
 import { ParallaxImageWrapper } from "../components/UI/ParallaxImageWrapper";
@@ -36,7 +35,7 @@ export default function Page() {
           <img
             srcSet={mobileSrcSet || ""}
             className="w-full h-full object-cover"
-            alt="Panels presentation"
+            alt="Marble presentation"
             loading="eager"
           />
         </picture>

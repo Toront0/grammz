@@ -56,7 +56,7 @@ export default function Page() {
             <ParallaxImageWrapper className="relative w-full aspect-9/9 self-start">
               <Image
                 src="/panels/panels_3.jpg"
-                alt="Marble Image"
+                alt="Panels Image"
                 fill
                 className="object-cover"
               />
@@ -64,7 +64,7 @@ export default function Page() {
             <ParallaxImageWrapper className="relative w-full aspect-9/10 mt-12 lg:mt-32">
               <Image
                 src="/panels/panels_1.jpg"
-                alt="Marble Image"
+                alt="Panels Image"
                 fill
                 className="object-cover"
               />
@@ -86,7 +86,7 @@ export default function Page() {
             <ParallaxImageWrapper className="relative w-full lg:w-4/5 mt-10 lg:mt-40 bg-white ml-auto aspect-9/10">
               <Image
                 src="/panels/panels_2.jpg"
-                alt="Marble Image"
+                alt="Panels Image"
                 fill
                 className="object-cover"
               />
@@ -106,7 +106,7 @@ export default function Page() {
             <div className="relative w-full lg:w-[calc(60%-2.5vw)] bg-white aspect-video">
               <Image
                 src="/panels/panels_4.jpg"
-                alt="Marble Image"
+                alt="Panels Image"
                 fill
                 className="object-cover"
               />

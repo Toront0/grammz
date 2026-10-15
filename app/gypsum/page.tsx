@@ -35,7 +35,7 @@ export default function Page() {
           <img
             srcSet={mobileSrcSet || ""}
             className="w-full h-full object-cover"
-            alt="Panels presentation"
+            alt="Gypsum presentation"
             loading="eager"
           />
         </picture>
@@ -53,7 +53,7 @@ export default function Page() {
           <ParallaxImageWrapper className="relative w-full aspect-video self-start">
             <Image
               src="/gypsum/gypsum_3.webp"
-              alt="Marble Image"
+              alt="Gypsum Calumn Image"
               fill
               className="object-cover"
             />
@@ -61,7 +61,7 @@ export default function Page() {
           <ParallaxImageWrapper className="relative w-full lg:w-4/5 aspect-9/10 mt-12 lg:mt-32">
             <Image
               src="/gypsum/gypsum_7.png"
-              alt="Marble Image"
+              alt="Gypsum Moldings Image"
               fill
               className="object-cover"
             />
@@ -82,7 +82,7 @@ export default function Page() {
           <ParallaxImageWrapper className="relative w-full lg:w-4/5 mt-10 lg:mt-40 bg-white ml-auto self-start aspect-9/9">
             <Image
               src="/gypsum/gypsum_2.jpg"
-              alt="Marble Image"
+              alt="Gypsum ceiling rozette Image"
               fill
               className="object-cover"
             />
@@ -138,9 +138,8 @@ export default function Page() {
                 Профессиональный монтаж
               </RevealHeading>
               <RevealGlide className="mt-4 text-sm lg:text-base">
-                Наша штатная команда мастеров аккуратно доставит декор и
-                выполнит установку «под ключ» с абсолютно бесшовной стыковкой
-                элементов.
+                Мы организуем доставку декора и подберем проверенных мастеров
+                для качественного монтажа под ключ.
               </RevealGlide>
             </div>
           </div>

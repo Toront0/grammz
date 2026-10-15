@@ -220,7 +220,7 @@ const BrandLogo = ({ status, progress }: IBrandLogo) => {
       </div>
 
       {/* Dynamic Text / Progress Content Block */}
-      <div className="flex flex-col relative justify-center select-none min-w-[150px] md:min-w-[240px]">
+      <div className="flex flex-col relative justify-center  select-none w-[150px] lg:w-[320px]">
         {status === "loading" ? (
           <div
             ref={progressContainerRef}
@@ -241,7 +241,7 @@ const BrandLogo = ({ status, progress }: IBrandLogo) => {
         ) : (
           <>
             <h2
-              className="font-sans font-light text-[32px] leading-8 md:text-[52px] md:leading-14 text-white text-left"
+              className="font-sans font-light text-[32px] leading-8  md:text-[52px] md:leading-14 text-white text-left"
               ref={h2Ref}
             >
               {"GRAMMZ".split("").map((letter, index) => (
@@ -285,11 +285,10 @@ export default BrandLogo;
 
 // interface IBrandLogo {
 //   status: string;
-//   counterRef: RefObject<HTMLSpanElement | null>;
 //   progress: number;
 // }
 
-// const BrandLogo = ({ status }: IBrandLogo) => {
+// const BrandLogo = ({ status, progress }: IBrandLogo) => {
 //   const line1Ref = useRef<SVGPolygonElement>(null);
 //   const line2Ref = useRef<SVGPolygonElement>(null);
 //   const line3Ref = useRef<SVGPolygonElement>(null);
@@ -298,6 +297,7 @@ export default BrandLogo;
 //   const gradientRef = useRef<SVGGElement>(null);
 //   const h2Ref = useRef<HTMLHeadingElement>(null);
 //   const h3Ref = useRef<HTMLHeadingElement>(null);
+//   const progressContainerRef = useRef<HTMLDivElement>(null);
 //   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
 //   useLayoutEffect(() => {
@@ -307,13 +307,7 @@ export default BrandLogo;
 //       line3Ref.current,
 //       line4Ref.current
 //     ];
-//     if (
-//       lines.some((l) => !l) ||
-//       !leftBarRef.current ||
-//       !h2Ref.current ||
-//       !h3Ref.current
-//     )
-//       return;
+//     if (lines.some((l) => !l) || !leftBarRef.current) return;
 
 //     const tl = gsap.timeline({ repeat: -1 });
 //     timelineRef.current = tl;
@@ -330,7 +324,6 @@ export default BrandLogo;
 //     });
 
 //     if (status === "loading") {
-//       // 💡 Optimization 1: Use native SVG transform attributes instead of layout positions
 //       gsap.set(leftBarRef.current, {
 //         opacity: 0,
 //         attr: { transform: "translate(60, 50)" }
@@ -339,7 +332,6 @@ export default BrandLogo;
 //         opacity: 0,
 //         attr: { transform: "translate(60, 50)" }
 //       });
-//       gsap.set(h3Ref.current, { opacity: 0, y: 15, force3D: true });
 //     } else {
 //       tl.pause();
 //       gsap.set(lines, { opacity: 1 });
@@ -352,7 +344,7 @@ export default BrandLogo;
 //         attr: { transform: "translate(88.56, 50)" }
 //       });
 //       gsap.set(".letter-node", { opacity: 1, filter: "blur(0px)", y: 0 });
-//       gsap.set(h3Ref.current, { opacity: 1, y: 0 });
+//       if (h3Ref.current) gsap.set(h3Ref.current, { opacity: 1, y: 0 });
 //     }
 
 //     return () => {
@@ -375,6 +367,16 @@ export default BrandLogo;
 
 //       const transitionTl = gsap.timeline();
 
+//       // Fade out the progress bar cleanly before introducing the text
+//       if (progressContainerRef.current) {
+//         transitionTl.to(progressContainerRef.current, {
+//           opacity: 0,
+//           y: -10,
+//           duration: 0.3,
+//           ease: "quad.inOut"
+//         });
+//       }
+
 //       transitionTl.to(
 //         [
 //           line1Ref.current,
@@ -385,10 +387,10 @@ export default BrandLogo;
 //         {
 //           opacity: 1,
 //           duration: 0.2
-//         }
+//         },
+//         "-=0.1"
 //       );
 
-//       // 💡 Optimization 2: Target the 'attr' object to let the GPU handle transform matrices directly
 //       transitionTl.to(
 //         leftBarRef.current,
 //         {
@@ -422,25 +424,28 @@ export default BrandLogo;
 //           ease: "quad.out",
 //           force3D: true
 //         },
-//         "-=0.3"
-//       );
-
-//       transitionTl.to(
-//         h3Ref.current,
-//         {
-//           opacity: 1,
-//           y: 0,
-//           duration: 0.5,
-//           ease: "quad.out",
-//           force3D: true
-//         },
 //         "-=0.2"
 //       );
+
+//       if (h3Ref.current) {
+//         transitionTl.to(
+//           h3Ref.current,
+//           {
+//             opacity: 1,
+//             y: 0,
+//             duration: 0.5,
+//             ease: "quad.out",
+//             force3D: true
+//           },
+//           "-=0.2"
+//         );
+//       }
 //     }
 //   }, [status]);
 
 //   return (
-//     <div className="flex items-center gap-2 md:gap-4 max-w-full ">
+//     <div className="flex items-center gap-4 md:gap-6 max-w-full">
+//       {/* SVG Icon Viewport Container */}
 //       <div className="w-[120px] h-[165px] md:w-[213px] md:h-[293px] flex-shrink-0">
 //         <svg
 //           xmlns="http://w3.org"
@@ -448,10 +453,8 @@ export default BrandLogo;
 //           className="w-full h-full"
 //           shapeRendering="geometricPrecision"
 //           aria-label="Logo Icon"
-//           style={{ willChange: "transform" }} // 💡 Optimization 3: Hint browser to cache the rendering viewport
+//           style={{ willChange: "transform" }}
 //         >
-//           {/* 💡 Optimization 4: Set hardware wrapper transforms directly into the base markup */}
-
 //           <g
 //             ref={leftBarRef}
 //             transform="translate(60, 50)"
@@ -498,38 +501,60 @@ export default BrandLogo;
 //         </svg>
 //       </div>
 
-//       <div className="text-center flex flex-col relative justify-center select-none">
-//         <h2
-//           className="font-sans font-light text-[32px] leading-8 md:text-[52px] md:leading-14 text-white"
-//           ref={h2Ref}
-//         >
-//           {"GRAMMZ".split("").map((letter, index) => (
-//             <span
-//               key={index}
-//               className="letter-node"
-//               style={{
-//                 opacity: 0,
-//                 filter: "blur(12px)",
-//                 transform: "translateY(8px)",
-//                 display: "inline-block"
-//               }}
+//       {/* Dynamic Text / Progress Content Block */}
+//       <div className="flex flex-col relative justify-center select-none min-w-[150px] md:min-w-[240px]">
+//         {status === "loading" ? (
+//           <div
+//             ref={progressContainerRef}
+//             className="flex flex-col items-start justify-center w-full gap-2 text-white/70"
+//           >
+//             <div className="flex items-baseline gap-1 font-mono text-sm tracking-wider md:text-base">
+//               {/* Render the prop directly here */}
+//               <span>{Math.round(progress)}</span>
+//               <span className="text-[10px] opacity-50">%</span>
+//             </div>
+//             <div className="h-[2px] w-full bg-white/10 rounded-full overflow-hidden relative">
+//               <div
+//                 className="h-full bg-white transition-all duration-150 ease-out"
+//                 style={{ width: `${progress}%` }}
+//               />
+//             </div>
+//           </div>
+//         ) : (
+//           <>
+//             <h2
+//               className="font-sans font-light text-[32px] leading-8 md:text-[52px] md:leading-14 text-white text-left"
+//               ref={h2Ref}
 //             >
-//               {letter}
-//             </span>
-//           ))}
-//         </h2>
+//               {"GRAMMZ".split("").map((letter, index) => (
+//                 <span
+//                   key={index}
+//                   className="letter-node"
+//                   style={{
+//                     opacity: 0,
+//                     filter: "blur(12px)",
+//                     transform: "translateY(8px)",
+//                     display: "inline-block"
+//                   }}
+//                 >
+//                   {letter}
+//                 </span>
+//               ))}
+//             </h2>
 
-//         <h3
-//           ref={h3Ref}
-//           style={{
-//             margin: 0,
-//             display: "inline-block",
-//             opacity: 0
-//           }}
-//           className="font-sans text-center text-[11px] md:text-[14px] tracking-[24px] indent-[24px] md:tracking-[47px] md:indent-[47px]"
-//         >
-//           DECOR
-//         </h3>
+//             <h3
+//               ref={h3Ref}
+//               style={{
+//                 margin: 0,
+//                 display: "inline-block",
+//                 opacity: 0
+//               }}
+//               className="font-sans  text-left text-[11px] md:text-[14px] tracking-[28px] lg:tracking-[48px] text-white/50 mt-1"
+//             >
+//               DECOR
+//             </h3>
+//           </>
+//         )}
 //       </div>
 //     </div>
 //   );
