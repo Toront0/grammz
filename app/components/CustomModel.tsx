@@ -32,7 +32,7 @@ export default function CustomModel({ isMobile }: CustomModelProps) {
   const isInitialized = useRef(false);
 
   const { setOverlayOpen, isOverlayOpen } = useAudioStore();
-  const { bakedTextures, perlinTexture } = useCustomModelTextures(isMobile);
+  const { bakedTextures } = useCustomModelTextures(isMobile);
 
   const dustParticlesRef = useRef<THREE.Points | null>(null);
   const smokeMaterialRef = useRef<THREE.ShaderMaterial | null>(null);
@@ -43,11 +43,11 @@ export default function CustomModel({ isMobile }: CustomModelProps) {
   const godRayUniforms = useMemo(
     () => ({
       uTime: { value: 0 },
-      uTexture: { value: perlinTexture },
+      uTexture: { value: bakedTextures.perlin },
       uColor: { value: new THREE.Color("#fffaed") },
       uOpacity: { value: 0.5 }
     }),
-    [perlinTexture]
+    [bakedTextures.perlin]
   );
 
   // Setup unlit textures matrix and map special shaders
@@ -249,7 +249,7 @@ export default function CustomModel({ isMobile }: CustomModelProps) {
             fragmentShader={coffeeFragmentShader}
             uniforms={{
               uTime: { value: 0 },
-              uPerlinTexture: { value: perlinTexture }
+              uPerlinTexture: { value: bakedTextures.perlin }
             }}
             side={THREE.DoubleSide}
             transparent={true}

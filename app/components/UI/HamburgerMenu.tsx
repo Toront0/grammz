@@ -17,12 +17,12 @@ export default function HamburgerMenu({
 
   // 💡 If the menu is open OR we are not on the homepage, the bars should be black. Otherwise, they are gray.
   const isNotHome = pathname !== "/";
-  const barColorClass = isOpen || isNotHome ? "bg-black" : "bg-gray-200";
+  const barColorClass = isOpen || isNotHome ? "bg-gray-200" : "bg-gray-200";
 
   return (
     <button
       onClick={setIsMenuOpen}
-      className="group relative flex h-10 w-10 flex-col items-center justify-center rounded-md transition-colors duration-300 z-50 pointer-events-auto"
+      className="group relative cursor-pointer flex h-10 w-10 flex-col items-center justify-center rounded-md transition-colors duration-300 z-50 pointer-events-auto"
       aria-label={isOpen ? "Close menu" : "Open menu"}
     >
       {/* Container is exactly 16px high (h-4) */}

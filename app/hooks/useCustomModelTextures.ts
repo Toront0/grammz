@@ -18,7 +18,7 @@ export function useCustomModelTextures(isMobile: boolean) {
     "/basis/"
   );
 
-  const perlinTexture = useTexture("/textures/perlin.png");
+  // const perlinTexture = useTexture("/textures/perlin.png");
 
   const bakedTextures = useMemo(() => {
     const [genTex, sofaTex, furTex, floorTex, coffeeTex, perlinTex] =
@@ -66,13 +66,13 @@ export function useCustomModelTextures(isMobile: boolean) {
   }, [ktxTextures, isMobile]);
 
   useEffect(() => {
-    if (perlinTexture) {
-      perlinTexture.wrapS = THREE.RepeatWrapping;
-      perlinTexture.wrapT = THREE.RepeatWrapping;
-      perlinTexture.anisotropy = 8;
-      perlinTexture.needsUpdate = true;
+    if (bakedTextures.perlin) {
+      bakedTextures.perlin.wrapS = THREE.RepeatWrapping;
+      bakedTextures.perlin.wrapT = THREE.RepeatWrapping;
+      bakedTextures.perlin.anisotropy = 8;
+      bakedTextures.perlin.needsUpdate = true;
     }
-  }, [perlinTexture]);
+  }, [bakedTextures.perlin]);
 
-  return { bakedTextures, perlinTexture };
+  return { bakedTextures };
 }

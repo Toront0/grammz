@@ -43,7 +43,7 @@ export function ScrollTransitionShell({
   return (
     <div
       ref={scrollerRef}
-      className="w-full h-screen z-40 bg-black overflow-y-auto overscroll-none"
+      className="w-full h-screen z-40 bg-[#050505] "
       style={{ willChange: "transform" }}
     >
       {/* Route Transition Veil */}
@@ -57,7 +57,10 @@ export function ScrollTransitionShell({
       {heroHeaderContent}
 
       {/* Render body content with the target tracking reference container wrapper */}
-      <div ref={containerRef} className="px-[calc(5vw*1.5)] py-10 lg:py-32">
+      <div
+        ref={containerRef}
+        className="px-[calc(5vw*1.5)] bg-[#050505] py-10 lg:py-32"
+      >
         {bodyContent}
       </div>
     </div>

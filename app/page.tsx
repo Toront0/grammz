@@ -135,13 +135,13 @@ export default function Home() {
                 filter: "blur(20px)",
                 opacity: 0
               }}
-              className="hero-title text-4xl lg:text-7xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg will-change-[clip-path,filter]"
+              className="hero-title text-4xl select-none lg:text-7xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg will-change-[clip-path,filter]"
             >
               Погрузитесь в мир вдохновляющего декора.
             </h1>
             <p
               style={{ opacity: 0 }}
-              className="hero-paragraph text-slate-400 w-full lg:w-4/5 text-sm lg:text-xl"
+              className="hero-paragraph select-none text-slate-400 w-full lg:w-4/5 text-sm lg:text-xl"
             >
               Профессиональные отделочные материалы премиального качества: от
               гибкого мрамора до интерьерной лепнины. Создайте дизайн, который
@@ -154,10 +154,10 @@ export default function Home() {
           className="absolute inset-0 w-full h-full flex flex-col justify-center px-4 lg:px-24 bg-transparent"
         >
           <div className="animate-box max-w-xl will-change-transform flex flex-col justify-end lg:justify-center h-3/4 ">
-            <h2 className="text-2xl lg:text-4xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
+            <h2 className="text-2xl lg:text-4xl select-none font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
               Декоративные реечные панели
             </h2>
-            <p className="text-slate-300 text-xs lg:text-base">
+            <p className="text-slate-300 select-none text-xs lg:text-base">
               Трендовые рейки для акцентных стен. Скрывают неровности, визуально
               увеличивают высоту потолков и добавляют интерьеру фактурную
               глубину.
@@ -185,10 +185,10 @@ export default function Home() {
           className="absolute inset-0 w-full h-full flex flex-col justify-center px-4 lg:px-24 bg-transparent"
         >
           <div className="animate-box max-w-xl will-change-transform h-3/4 flex flex-col justify-end lg:text-left">
-            <h2 className="text-2xl lg:text-5xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
+            <h2 className="text-2xl lg:text-5xl select-none font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
               Гибкий мрамор
             </h2>
-            <p className="text-slate-400 text-xs lg:text-lg">
+            <p className="text-slate-400 select-none text-xs lg:text-lg">
               Гибкий мрамор — тонкие листы из натурального мрамора и кварцевого
               песка. Повторяют текстуру камня, но без веса и сложного монтажа.
               Легко режутся и гнутся под любые формы.
@@ -209,10 +209,10 @@ export default function Home() {
           className="absolute inset-0 w-full h-full flex flex-col justify-center items-start text-left px-4 lg:px-24 bg-transparent"
         >
           <div className="animate-box max-w-xl will-change-transform h-3/4 flex flex-col justify-end ">
-            <h2 className="text-2xl lg:text-5xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
+            <h2 className="text-2xl lg:text-5xl select-none font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
               Лепной декор
             </h2>
-            <p className="text-slate-400 text-xs lg:text-lg">
+            <p className="text-slate-400 select-none text-xs lg:text-lg">
               Лёгкий способ придать интерьеру завершённость и премиальный
               статус. Влагостойкие карнизы, молдинги, потолочные розетки и
               3D-панели. Не трескаются, легко монтируются и красятся в любой
@@ -234,10 +234,10 @@ export default function Home() {
           className="absolute inset-0 w-full h-full flex flex-col justify-center items-start text-left px-4 lg:px-24 bg-transparent"
         >
           <div className="animate-box max-w-xl will-change-transform h-3/4 flex flex-col justify-end">
-            <h2 className="text-2xl lg:text-5xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
+            <h2 className="text-2xl lg:text-5xl select-none font-sansClean font-light mb-4 tracking-tight drop-shadow-lg">
               ☕️ Пятница — день кофе в GRAMMZ!
             </h2>
-            <p className="text-slate-400 text-xs lg:text-lg">
+            <p className="text-slate-400 select-none text-xs lg:text-lg">
               Каждую пятницу — бесплатный премиальный кофе для всех гостей
               шоурума, а для семей с детьми действуют особые скидки. Заходите,
               чтобы вживую оценить материалы и спокойно спланировать будущий

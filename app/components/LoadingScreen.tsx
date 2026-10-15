@@ -107,11 +107,7 @@ export default function LoaderScreen({
         {/* Subtle decorative spinning ring */}
         {/* <GlintText>Используйте наушники для полного погружения</GlintText> */}
         <div></div>
-        <BrandLogo
-          status={logoStatus}
-          counterRef={counterRef}
-          progress={progress}
-        />
+        <BrandLogo status={logoStatus} progress={progress} />
         {/* <div className="absolute top-[90%] left-0">123</div> */}
         <div className="flex items-center shrink-0 min-h-10  py-2">
           {appState === "ready" && <GlintText>Нажмите, чтобы начать</GlintText>}

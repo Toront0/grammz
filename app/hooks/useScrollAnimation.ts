@@ -39,7 +39,7 @@ export const useScrollAnimation = ({
             immediateRender: false,
             scrollTrigger: {
               trigger: heading,
-              scroller: scrollerRef.current,
+              // scroller: scrollerRef.current,
               start: "top 85%",
               toggleActions: "play none none none"
             }
@@ -63,7 +63,7 @@ export const useScrollAnimation = ({
             immediateRender: false,
             scrollTrigger: {
               trigger: item, // 🎯 Triggers exactly when this item rolls into view
-              scroller: scrollerRef.current,
+              // scroller: scrollerRef.current,
               start: "top 85%",
               toggleActions: "play none none none"
             }
@@ -84,7 +84,7 @@ export const useScrollAnimation = ({
             ease: "none",
             scrollTrigger: {
               trigger: img.parentElement,
-              scroller: scrollerRef.current,
+              // scroller: scrollerRef.current,
               start: "top bottom",
               end: "bottom top",
               scrub: 1.5 // Adds an elegant inertial lag matching the slow scroller

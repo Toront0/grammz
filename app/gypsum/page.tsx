@@ -29,7 +29,7 @@ export default function Page() {
   return (
     <ScrollTransitionShell>
       {/* CHILD 1: Hero Header section (Static Node - perfectly serializable) */}
-      <div className="w-full h-full relative">
+      <div className="w-full h-full relative bg-black">
         <picture className="absolute inset-0 w-full h-full">
           <source media="(min-width: 768px)" srcSet={desktopSrcSet || ""} />
           <img
@@ -39,7 +39,7 @@ export default function Page() {
             loading="eager"
           />
         </picture>
-        <div className="absolute bottom-0 flex items-end w-full h-1/2 bg-linear-to-t from-black/90 via-transparent to-transparent z-30"></div>
+        <div className="absolute bottom-0 flex items-end w-full h-1/2 bg-linear-to-t from-[#050505] via-transparent to-transparent z-30"></div>
         <div className="flex z-40 absolute bottom-0 inset-x-0 p-4 lg:p-8 items-end box-border">
           <h3 className="text-3xl lg:text-6xl w-full lg:w-1/2 text-gray-100 tracking-tight leading-tight">
             Все виды лепного декора

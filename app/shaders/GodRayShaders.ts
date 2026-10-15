@@ -59,7 +59,7 @@ export const particleVertexShader = `
 
     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
     vAlphaFade = 1.0; 
-    gl_PointSize = 2.0 + hash(uniqueId + 3.0) * 4.0; 
+    gl_PointSize = 2.0 + hash(uniqueId + 3.0) * 3.0; 
     vOpacityVariation = 0.4 + hash(uniqueId + 4.0) * 0.5;
 
     gl_Position = projectionMatrix * mvPosition;

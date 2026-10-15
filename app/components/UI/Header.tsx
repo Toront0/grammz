@@ -9,71 +9,49 @@ import HamburgerMenu from "./HamburgerMenu";
 import { useAudioStore } from "../../store/useAudioStore";
 import { usePathname } from "next/navigation";
 import HomeNavigation from "./HomeNavigation";
+import NavigationMenu from "./NavigationMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const resetActiveSection = useAudioStore((state) => state.resetActiveSection);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const linksRef = useRef<HTMLDivElement>(null);
-  const tl = useRef<gsap.core.Timeline | null>(null);
 
-  const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    // Set initial position immediately on load before building timeline
-    gsap.set(menuRef.current, { yPercent: -100 });
-    if (linksRef.current) {
-      gsap.set(linksRef.current.children, { y: 50, opacity: 0 });
-    }
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
 
-    const ctx = gsap.context(() => {
-      tl.current = gsap
-        .timeline({ paused: true })
-        // 1. Slide menu panel down
-        .to(menuRef.current, {
-          yPercent: 0,
-          duration: 0.6,
-          ease: "power4.inOut"
-        })
-        // 2. Animate links up (staggered)
-        .to(
-          linksRef.current ? linksRef.current.children : [],
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.inOut",
-            stagger: 0.1
-          },
-          "-=0.3" // Starts slightly before panel finishes
-        );
-    });
+      // 1. Prevent breaking on iOS rubber-band/bounce scrolling top
+      if (currentScrollY < 0) return;
 
-    return () => ctx.revert();
-  }, []);
-
-  useEffect(() => {
-    if (tl.current) {
-      if (isMenuOpen) {
-        tl.current.play();
+      // 2. Adjust visibility based on direction
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling DOWN and passed the header height threshold
+        setIsVisible(false);
       } else {
-        tl.current.reverse();
+        // Scrolling UP
+        setIsVisible(true);
       }
-    }
-  }, [isMenuOpen]);
 
-  const handleOnLinkClick = () => {
-    setIsMenuOpen(false);
-    resetActiveSection();
-  };
+      // 3. Update the tracking anchor position
+      setLastScrollY(currentScrollY);
+    };
 
-  const isNotHomePage = pathname !== "/";
+    // Use passive listener to boost mobile scroll performance
+    window.addEventListener("scroll", controlHeader, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", controlHeader);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
       {/* Header Bar */}
       <div
-        className={`fixed top-0 z-50 flex  items-center justify-between  left-0 w-full p-2 lg:p-8 bg-linear-to-b from-black via-black/50 to-transparent`}
+        className={`fixed top-0 z-50 flex  items-center justify-between  left-0 w-full p-2 lg:p-8 bg-linear-to-b from-black via-black/50 to-transparent transition-transform duration-300 ease-in-out ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
         <div className="flex items-center gap-4 lg:gap-8">
           <Link href="/">
@@ -91,53 +69,11 @@ const Header = () => {
             setIsMenuOpen={() => setIsMenuOpen((prev) => !prev)}
           />
         </div>
-        {/* {!isNotHomePage && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <HomeNavigation />
-          </div>
-        )} */}
         <div></div>
       </div>
 
       {/* Overlay Menu */}
-      <div
-        ref={menuRef}
-        className="fixed inset-0 z-45  bg-[#EFEBDC] text-5xl lg:text-6xl text-[#184241] p-4 lg:p-20 flex flex-col justify-between items-center lg:items-start text-center lg:text-left"
-      >
-        <div></div>
-
-        {/* Links Wrapper */}
-        <div
-          ref={linksRef}
-          className="flex flex-col gap-6 lg:gap-12  overflow-hidden"
-        >
-          <Link
-            href="/"
-            className="font-bold block w-full hover:text-[#bf9473]   transition-colors"
-            onClick={handleOnLinkClick}
-          >
-            Главная
-          </Link>
-          <Link
-            href="/catalog"
-            className="font-bold block w-full hover:text-[#bf9473] transition-colors"
-            onClick={handleOnLinkClick}
-          >
-            Каталог
-          </Link>
-          <Link
-            href="/contacts"
-            className="font-bold block w-full hover:text-[#bf9473] transition-colors"
-            onClick={handleOnLinkClick}
-          >
-            О компании
-          </Link>
-        </div>
-
-        <div className="text-xs font-medium">
-          © GRAMMZ 2026-2027 All rights reserved.
-        </div>
-      </div>
+      <NavigationMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </>
   );
 };

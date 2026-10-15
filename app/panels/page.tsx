@@ -41,7 +41,7 @@ export default function Page() {
           />
         </picture>
 
-        <div className="absolute bottom-0 flex items-end w-full h-1/2 bg-linear-to-t from-black/90 via-transparent to-transparent z-30"></div>
+        <div className="absolute bottom-0 flex items-end w-full h-1/2 bg-linear-to-t from-[#050505] via-transparent to-transparent z-30"></div>
         <div className="flex z-40 absolute bottom-0 inset-x-0 p-4 lg:p-8 items-end box-border">
           <h3 className="text-3xl lg:text-6xl w-full lg:w-1/2 text-gray-100 tracking-tight leading-tight">
             Реечные панели: Графика линий и новый ритм вашего интерьера
