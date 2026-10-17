@@ -93,11 +93,14 @@ export const cameraWaypoints: CameraPoints[] = [
     targetY: -0.324,
     targetZ: -2.603,
     mobile: {
-      posX: 2.18,
-      posY: -0.029,
-      posZ: -1.81,
+      // posX: 2.18,
+      // posY: -0.029,
+      // posZ: -1.81,
+      posX: 2.05,
+      posY: -0.05,
+      posZ: -1.72,
       targetX: 1.507,
-      targetY: -0.051,
+      targetY: -0.041,
       targetZ: -1.75
     }
     // posX: 1.921,

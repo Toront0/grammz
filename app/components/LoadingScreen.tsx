@@ -101,7 +101,7 @@ export default function LoaderScreen({
     <div
       onClick={handleEntryClick}
       ref={overlayRef}
-      className="fixed inset-0 w-screen p-4 h-dvh  bg-black z-50 flex flex-col items-center justify-end text-white select-none font-mono"
+      className="fixed inset-0 w-screen p-2 lg:p-4 h-dvh  bg-black z-50 flex flex-col items-center justify-end text-white select-none font-mono"
     >
       <div className="text-center flex w-full h-full  justify-between flex-col items-center">
         {/* Subtle decorative spinning ring */}

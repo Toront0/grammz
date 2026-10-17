@@ -1,6 +1,7 @@
 import { ScrollTransitionShell } from "../components/UI/ScrollTransitionShell";
 
 import Footer from "../components/UI/Footer";
+import ContactForm from "./ContactForm";
 
 export default function Page() {
   // 1. Compute image optimization parameters directly on the server safely
@@ -8,12 +9,12 @@ export default function Page() {
   return (
     <ScrollTransitionShell>
       {/* CHILD 1: Hero Header section (Static Node - perfectly serializable) */}
-      <div className="w-full pt-24 pb-24 lg:pb-12 flex lg:flex-row flex-col items-center px-[calc(5vw*1.5)] gap-[calc(5vw*1.5)]">
+      <div className="w-full pt-24 pb-24 lg:pb-12 h-full flex lg:flex-row flex-col items-center px-[calc(5vw*1.5)] gap-[calc(5vw*1.5)]">
         <div className="w-full lg:w-[calc(60%-2.5vw)]  h-full flex flex-col justify-center">
           <h3 className="text-3xl lg:text-7xl w-full lg:w-3/4  text-gray-100 tracking-tight leading-tight">
             Давайте обсудим ваш проект.
           </h3>
-          <h4 className="text-gray-300 mt-8 text-lg font-medium">
+          <h4 className="text-gray-300 mt-8 text-base lg:text-lg font-medium">
             Контактная информация
           </h4>
           <div className="grid grid-cols-1 lg:grid-cols-2 text-gray-300 gap-y-4 mt-10">
@@ -70,7 +71,8 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-[calc(40%-2.5vw)] border border-gray-600 text-gray-200 p-4 lg:p-8 rounded ">
+        <ContactForm />
+        {/* <div className="w-full lg:w-[calc(40%-2.5vw)] border border-gray-600 text-gray-200 p-4 lg:p-8 rounded ">
           <h3 className="text-base lg:text-lg">Свяжитесь с нами</h3>
           <p className="text-xs lg:text-base text-gray-300 mt-2">
             Мы всегда на связи. Задайте свой вопрос или отправьте предложение, и
@@ -91,7 +93,7 @@ export default function Page() {
               ОТПРАВИТЬ
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </ScrollTransitionShell>

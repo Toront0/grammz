@@ -139,7 +139,7 @@ export default function Page() {
             <h3 className="font-sansClean text-center text-2xl lg:text-4xl text-gray-200">
               Почему гибкий мрамор ?
             </h3>
-            <h4 className="text-base lg:text-xl w-full lg:w-1/3 mx-auto mt-8 text-gray-300 text-center px-4 lg:px-0">
+            <h4 className="text-sm lg:text-xl w-full lg:w-1/3 mx-auto mt-8 text-gray-300 text-center px-4 lg:px-0">
               Элегантность элитного мрамора без лишнего веса, сложной логистики
               и строительной пыли.
             </h4>
@@ -159,7 +159,7 @@ export default function Page() {
                     <path d="m12.54.637 8.25 2.675A1.75 1.75 0 0 1 22 4.976V10c0 6.19-3.771 10.704-9.401 12.83a1.704 1.704 0 0 1-1.198 0C5.77 20.705 2 16.19 2 10V4.976c0-.758.489-1.43 1.21-1.664L11.46.637a1.748 1.748 0 0 1 1.08 0Zm-.617 1.426-8.25 2.676a.249.249 0 0 0-.173.237V10c0 5.46 3.28 9.483 8.43 11.426a.199.199 0 0 0 .14 0C17.22 19.483 20.5 15.461 20.5 10V4.976a.25.25 0 0 0-.173-.237l-8.25-2.676a.253.253 0 0 0-.154 0Z"></path>
                   </svg>
                 </div>
-                <h3 className="text-base lg:text-2xl text-gray-200 text-center mt-2">
+                <h3 className="text-sm lg:text-2xl text-gray-200 text-center mt-2">
                   Производительность
                 </h3>
                 <h4 className="text-xs lg:text-lg text-gray-300 text-center px-2 lg:px-0">
@@ -185,7 +185,7 @@ export default function Page() {
                     </g>
                   </svg>
                 </div>
-                <h3 className="text-base lg:text-2xl text-gray-200 text-center mt-2">
+                <h3 className="text-sm lg:text-2xl text-gray-200 text-center mt-2">
                   Лёгкий монтаж
                 </h3>
                 <h4 className="text-xs lg:text-lg text-gray-300 text-center px-2 lg:px-0">
@@ -211,7 +211,7 @@ export default function Page() {
                     <path d="M3 9l4 0"></path>
                   </svg>
                 </div>
-                <h3 className="text-base lg:text-2xl text-gray-200 text-center mt-2">
+                <h3 className="text-sm lg:text-2xl text-gray-200 text-center mt-2">
                   Доставка
                 </h3>
                 <h4 className="text-xs lg:text-lg text-gray-300 text-center px-2 lg:px-0">
@@ -234,7 +234,7 @@ export default function Page() {
                     </g>
                   </svg>
                 </div>
-                <h3 className="text-base lg:text-2xl text-gray-200 text-center mt-2">
+                <h3 className="text-sm lg:text-2xl text-gray-200 text-center mt-2">
                   Доступность
                 </h3>
                 <h4 className="text-xs lg:text-lg text-gray-300 text-center px-2 lg:px-0">

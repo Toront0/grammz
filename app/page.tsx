@@ -135,13 +135,13 @@ export default function Home() {
                 filter: "blur(20px)",
                 opacity: 0
               }}
-              className="hero-title text-4xl select-none lg:text-7xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg will-change-[clip-path,filter]"
+              className="hero-title text-4xl  mix-blend-difference select-none lg:text-7xl font-sansClean font-light mb-4 tracking-tight drop-shadow-lg will-change-[clip-path,filter]"
             >
               Погрузитесь в мир вдохновляющего декора.
             </h1>
             <p
               style={{ opacity: 0 }}
-              className="hero-paragraph select-none text-slate-400 w-full lg:w-4/5 text-sm lg:text-xl"
+              className="hero-paragraph  hidden lg:block select-none text-slate-400 w-full lg:w-4/5 text-sm lg:text-xl"
             >
               Профессиональные отделочные материалы премиального качества: от
               гибкого мрамора до интерьерной лепнины. Создайте дизайн, который

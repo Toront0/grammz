@@ -74,7 +74,7 @@ const NavigationMenu = ({ isMenuOpen, setIsMenuOpen }: INavigationMenu) => {
   return (
     <div
       ref={menuRef}
-      className="fixed inset-0 z-45  bg-[#050505] text-5xl lg:text-6xl text-[#fff] p-4 lg:p-20 flex flex-col justify-between items-center lg:items-start text-center lg:text-left"
+      className="fixed inset-0 z-45  bg-[#050505] text-3xl lg:text-6xl text-[#fff] p-4 lg:p-20 flex flex-col justify-between items-center lg:items-start text-center lg:text-left"
     >
       <div></div>
 
@@ -85,7 +85,7 @@ const NavigationMenu = ({ isMenuOpen, setIsMenuOpen }: INavigationMenu) => {
       >
         <Link
           href="/"
-          className="font-bold w-fit font-sansClean w-full hover:text-[#bf9473]   transition-colors"
+          className=" font-sansClean w-full hover:text-[#bf9473]   transition-colors"
           onClick={handleOnLinkClick}
         >
           Главная
@@ -93,14 +93,14 @@ const NavigationMenu = ({ isMenuOpen, setIsMenuOpen }: INavigationMenu) => {
 
         <Link
           href="/contacts"
-          className="font-bold w-fit font-sansClean w-full hover:text-[#bf9473] transition-colors"
+          className=" font-sansClean w-full hover:text-[#bf9473] transition-colors"
           onClick={handleOnLinkClick}
         >
           Контакты
         </Link>
         <Link
           href="/promotion"
-          className="font-bold w-fit font-sansClean w-full hover:text-[#bf9473] transition-colors"
+          className=" font-sansClean w-full hover:text-[#bf9473] transition-colors"
           onClick={handleOnLinkClick}
         >
           Спецпредложения
@@ -108,13 +108,8 @@ const NavigationMenu = ({ isMenuOpen, setIsMenuOpen }: INavigationMenu) => {
       </div>
 
       <div className="w-full flex items-center justify-between">
-        <div className="text-xs font-medium">
+        <div className="text-[9px] lg:text-xs font-medium text-gray-600">
           © GRAMMZ 2026-2027 All rights reserved.
-        </div>
-        <div className="text-base text-gray-400 flex justify-end text-right font-sansClean">
-          <h5 className="w-3/5">
-            Grammz — место, где ваши идеи встречаются с идеальным воплощением.
-          </h5>
         </div>
       </div>
     </div>
